@@ -1,0 +1,20 @@
+export const movesData = [
+  { id: 1, x: 1398, y: 1029 },
+  { id: 2, x: 1170, y: 1140 },
+  { id: 3, x: 970, y: 1220 },
+  { id: 4, x: 1140, y: 1420, img: '/cities/city_1.png' },
+  { id: 5, x: 810, y: 1500 },
+  { id: 6, x: 525, y: 1315 },
+  { id: 7, x: 365, y: 1153, img: '/cities/city_2.png' },
+  { id: 8, x: 228, y: 950 },
+  { id: 9, x: 80, y: 768, img: '/cities/city_3.png' },
+  { id: 10, x: 83, y: 542 },
+  { id: 11, x: 268, y: 376 },
+  { id: 12, x: 463, y: 296, img: '/cities/city_4.png' },
+  { id: 13, x: 718, y: 251 },
+  { id: 14, x: 1010, y: 278 },
+  { id: 15, x: 1249, y: 346, img: '/cities/city_5.png' },
+  { id: 16, x: 1476, y: 371 },
+  { id: 17, x: 1671, y: 406 },
+  { id: 18, x: 1764, y: 592, img: '/cities/city_6.png'}
+]
