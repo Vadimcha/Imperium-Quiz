@@ -10,6 +10,7 @@ import "./styles/normalize.css";
 import useQuizStore from "./store/quizStore.ts";
 import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
+import { Cube } from "./components/cube/cube.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
@@ -36,6 +37,7 @@ function App() {
           <Lines/>
           <Cells/>
           <QuizPopup/>
+          <Cube/>
       </div>
   )
 }
