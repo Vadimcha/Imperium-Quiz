@@ -1,18 +1,14 @@
 import {deltaX, IPoint, positions} from "./positions.ts";
-import {useEffect} from "react";
 import {movesData} from "../../data/moves.ts";
 
 export const Cells = () => {
-  const cellsPositions = positions;
-  useEffect(() => {
-    console.log(positions);
-  }, []);
   return <>
     {
-      cellsPositions.map((p: IPoint) => {
+      positions.map((p: IPoint) => {
         const moveData = movesData.find(move => move.id === p.id)
         if(moveData && moveData.img) {
           return <img
+            key={p.id}
             style={{
               position: "absolute",
               left: `${p.x - 10}px`,

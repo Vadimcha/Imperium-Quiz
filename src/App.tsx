@@ -1,7 +1,7 @@
 import './App.css';
-import {Cells} from "./components/cells/Cells.tsx";
-import {Lines} from "./components/lines/Lines.tsx";
-import {Character} from "./components/character/Character.tsx";
+import { Cells } from "./components/cells/Cells.tsx";
+import { Lines } from "./components/lines/Lines.tsx";
+import { CharacterFull } from "./components/character/CharacterFull.tsx";
 import useGameStore from "./store/gameStore.ts";
 
 import "./styles/fonts.scss";
@@ -11,6 +11,7 @@ import useQuizStore from "./store/quizStore.ts";
 import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
 import { Cube } from "./components/cube/cube.tsx";
+import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
@@ -33,7 +34,11 @@ function App() {
               onClick={ () => setQuiz(QUIZZES[0], QUIZ_RESULT_MESSAGE)}
           >Квиз
           </button>
-          <Character/>
+          <CharacterFull playerId={0} />
+          <CharacterFull playerId={1} />
+          <CharacterFull playerId={2} />
+          <CharacterAvatar />
+
           <Lines/>
           <Cells/>
           <QuizPopup/>
