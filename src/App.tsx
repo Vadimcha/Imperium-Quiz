@@ -39,10 +39,10 @@ function App() {
           <CharacterFull playerId={2} />
           <CharacterAvatar />
 
-          <Lines/>
-          <Cells/>
-          <QuizPopup/>
-          <Cube/>
+          <Lines />
+          <Cells />
+          <QuizPopup />
+          <Cube />
       </div>
   )
 }

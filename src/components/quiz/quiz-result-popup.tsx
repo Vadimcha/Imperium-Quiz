@@ -1,9 +1,12 @@
-import { FC, memo, useEffect, useRef, useState } from "react";
+import {FC, memo, useEffect, useRef, useState} from "react";
 import styles from "./quiz.module.scss";
 import { QuizResult } from "../../domain/quiz.ts";
 import classNames from "classnames";
 import Lottie from "lottie-react";
 import confetti from "../../assets/confetti.json"
+import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
+import usePlayersStore from "../../store/playersStore.ts";
+import useGameStore from "../../store/gameStore.ts";
 
 export type QuizResultProps = {
     result: QuizResult,
@@ -11,15 +14,21 @@ export type QuizResultProps = {
 }
 
 export const QuizResultPopup: FC<QuizResultProps> = memo(props => {
+    const money = useMoneyAnimation();
+    const { changePlayersMoney } = usePlayersStore();
+    const { activePlayer } = useGameStore();
+
     const [showConfetti, setShowConfetti] = useState(false)
     const hasPlayedRef = useRef(false)
 
     useEffect(() => {
         if (props.result.isWin && !hasPlayedRef.current) {
+            changePlayersMoney(activePlayer, 1000);
+            money.play();
             setShowConfetti(true)
             hasPlayedRef.current = true
         }
-    }, [props.result.isWin])
+    }, [props.result.isWin, money])
 
 
     return <div className={ styles.quizResult }>

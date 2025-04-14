@@ -1,5 +1,6 @@
 import {motion} from 'framer-motion';
 import usePlayersStore from "../../store/playersStore.ts";
+import {characters} from "../../data/characters.ts";
 
 interface CharacterFullProps {
   playerId: number,
@@ -13,7 +14,7 @@ export const CharacterFull = ({ playerId }: CharacterFullProps) => {
       initial={playersStore.getPosition(playerId)}
       animate={playersStore.getPosition(playerId)}
       transition={{ duration: 1, ease: 'easeInOut' }}
-      src={`/characters/full/full_${playerId}.png`}
+      src={characters[playerId].fullImg}
       style={{
         zIndex: 100,
         position: 'absolute',
