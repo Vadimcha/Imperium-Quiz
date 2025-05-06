@@ -4,7 +4,7 @@ import { QuizResult } from "../../domain/quiz.ts";
 import classNames from "classnames";
 import Lottie from "lottie-react";
 import confetti from "../../assets/confetti.json"
-import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
+import { useMoneyAnimation } from "../../utils/animations/money/money-animation.tsx";
 import usePlayersStore from "../../store/playersStore.ts";
 import useGameStore from "../../store/gameStore.ts";
 

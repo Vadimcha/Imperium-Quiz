@@ -2,7 +2,7 @@ import './CharacterAvatar.css'
 import useGameStore from "../../store/gameStore.ts";
 import {characters} from "../../data/characters.ts";
 import usePlayersStore from "../../store/playersStore.ts";
-import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
+import { useMoneyAnimation } from "../../utils/animations/money/money-animation.tsx";
 import money from "../../assets/money.json";
 import Lottie from "lottie-react";
 

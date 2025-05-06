@@ -12,6 +12,7 @@ import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
 import { Cube } from "./components/cube/cube.tsx";
 import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
+import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
@@ -38,6 +39,8 @@ function App() {
           <CharacterFull playerId={1} />
           <CharacterFull playerId={2} />
           <CharacterAvatar />
+
+          <PlayersQueue />
 
           <Lines />
           <Cells />

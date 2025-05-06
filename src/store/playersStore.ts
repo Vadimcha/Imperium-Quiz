@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import {positions} from "../components/cells/positions.ts";
-import {PLAYER_COUNT} from "../components/utils";
+import {PLAYER_COUNT} from "../utils";
 import {characters, ICharacter} from "../data/characters.ts";
-import {moneyDurationMs} from "../components/utils/animations/money/money-animation.tsx";
+import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
 
 interface PlayersState {
   players: ICharacter[],

@@ -4,9 +4,10 @@ import {characters} from "../../data/characters.ts";
 
 interface CharacterFullProps {
   playerId: number,
+  height?: number
 }
 
-export const CharacterFull = ({ playerId }: CharacterFullProps) => {
+export const CharacterFull = ({ playerId, height = 100 }: CharacterFullProps) => {
   const playersStore = usePlayersStore();
 
   return (
@@ -21,7 +22,7 @@ export const CharacterFull = ({ playerId }: CharacterFullProps) => {
         top: 0,
         left: 0,
         width: 80,
-        height: 100,
+        height: height,
       }}
     />
   );
