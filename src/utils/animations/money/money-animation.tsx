@@ -14,7 +14,7 @@ export const useMoneyAnimation = create<MoneyState>((set, getState) => ({
       return { showMoney: true };
     });
 
-    // Повторный вызов через 2 секунды
+    // Повторный вызов через moneyDurationMs
     if(getState().showMoney) {
       setTimeout(() => {
         set(() => {

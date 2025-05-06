@@ -77,7 +77,7 @@ export const QUIZZES: Quiz[] = [
 ]
 
 export const QUIZ_RESULT_MESSAGE: QuizResultMessage = {
-    loseMessage: "Вы проиграли квиз!\nТеперь вы заплатите 100 монет игроку 2😈", 
-    winMessage: "Вы выиграли 100 монет!\nПлатить ничего не надо😇"
+    loseMessage: "Вы проиграли квиз!\nТеперь вы заплатите 100 монет игроку 2 😈",
+    winMessage: "Вы выиграли 100 монет!\nПлатить ничего не надо 😇"
 
 }

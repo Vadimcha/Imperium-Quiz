@@ -48,11 +48,13 @@ export const QuizPopup: FC<QuizProps> = memo(() => {
 
                             <div className={ styles.answersList }>
                                 { currentQuestion.answers.map((answer) => (
+                                  /* TODO Для тестирования (${answer.isCorrect}) */
                                     <div
                                         key={ answer.id }
                                         className={ styles.answer }
-                                        onClick={ () => quizStore.setAnswer(answer) }>
-                                        <div className={ styles.text }>{ answer.content }</div>
+                                        onClick={ () => quizStore.setAnswer(answer) }
+                                    >
+                                        <div className={ styles.text }>{ `${answer.content} (${answer.isCorrect})` }</div>
                                         {
                                             quizStore.currentAnswerId == answer.id && <img
                                                 src="/tick.webp"
