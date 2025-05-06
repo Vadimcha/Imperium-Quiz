@@ -1,9 +1,11 @@
 import { create } from "zustand";
 import {positions} from "../components/cells/positions.ts";
 import useQuizStore from "./quizStore.ts";
-import { QUIZ_RESULT_MESSAGE, QUIZZES } from "../data/quiz.ts";
+import { QUIZ_RESULT_MESSAGE } from "../data/quiz.ts";
 import playersStore from "./playersStore.ts";
-import {PLAYER_COUNT} from "../components/utils";
+import {PLAYER_COUNT} from "../utils";
+import {Quiz} from "../domain/quiz.ts";
+import {getQuestions} from "../utils/getQuestions.ts";
 
 export type processType = 'wait' | 'move'
 
@@ -38,7 +40,11 @@ const useGameStore = create<GameState>()((set, getState) => ({
     }
     
     // TODO: смотреть на тип ячейки в которую попали и открывать нужный квиз
-    useQuizStore.getState().setQuiz(QUIZZES[0], QUIZ_RESULT_MESSAGE)
+    const quiz: Quiz = {
+        name: "тестовый квиз",
+        questions: getQuestions(),
+    }
+    useQuizStore.getState().setQuiz(quiz, QUIZ_RESULT_MESSAGE)
   },
   changeProcess: (value: processType) => {
     set((state) => ({

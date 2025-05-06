@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Portal } from "../utils/Portal";
+import { Portal } from "../../utils/Portal";
 import styles from "./base-popup.module.scss";
 
 type Props = {
