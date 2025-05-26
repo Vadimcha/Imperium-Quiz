@@ -7,15 +7,18 @@ import useGameStore from "./store/gameStore.ts";
 import "./styles/fonts.scss";
 import "./styles/global.scss";
 import "./styles/normalize.css";
+import "react-untitled-ui/dist/cjs/index.css";
+import "react-untitled-ui/src/styles/global.scss";
 import useQuizStore from "./store/quizStore.ts";
 import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
 import { Cube } from "./components/cube/cube.tsx";
 import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
 import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
+import { GameStartPage } from "./components/game-start/game-start-page.tsx";
 
 function App() {
-  const { nextMove } = useGameStore();
+  const { nextMove, players } = useGameStore();
   const { setQuiz } = useQuizStore();
 
   return (
@@ -46,6 +49,10 @@ function App() {
           <Cells />
           <QuizPopup />
           <Cube />
+
+          {
+              players.length == 0 && <GameStartPage/>
+          }
       </div>
   )
 }

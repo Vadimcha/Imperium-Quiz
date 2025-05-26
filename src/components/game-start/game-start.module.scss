@@ -1,0 +1,40 @@
+@import "react-untitled-ui/src/styles/typography";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    position: fixed;
+    gap: 12px;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    
+    .text {
+        @include untitled-text-display-sm-medium;
+        margin-bottom: 12px;
+    }
+    
+    .player {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        max-width: 300px;
+        align-items: center;
+        
+        .avatar {
+            min-width: 36px;
+            min-height: 36px;
+            border-radius: 50%;
+        }
+    }
+    
+    .button {
+        max-width: 300px;
+        width: 100%;
+    }
+}

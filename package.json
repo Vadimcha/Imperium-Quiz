@@ -15,6 +15,7 @@
     "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-untitled-ui": "^0.0.83",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
