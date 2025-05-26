@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import {positions} from "../components/cells/positions.ts";
 import {PLAYER_COUNT} from "../utils";
-import {characters, ICharacter} from "../data/characters.ts";
+import {ICharacter} from "../data/characters.ts";
 import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
 
 interface PlayersState {
@@ -10,15 +10,17 @@ interface PlayersState {
   changePlayersMoney: (playerId: number, difference: number) => void,
   getPosition: (playerId: number) => { x: number, y: number },
   movePlayer: (playerId: number, value: number) => void,
+  setPlayers: (players: ICharacter[]) => void, 
 }
 
 const initialCells = [
   Array.from({ length: PLAYER_COUNT }, (_, idx: number) => idx),
   ...Array.from({ length: positions.length - 1 }, () => []),
 ];
+console.log(initialCells)
 
 const usePlayersStore = create<PlayersState>()((set, getState) => ({
-  players: characters,
+  players: [],
   cells: initialCells,
 
   getPosition: (playerId: number) => {
@@ -37,6 +39,7 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
         x += 30;
       }
     }
+    console.log( { x: x, y: positions[currentIndex].y - 50 })
     return { x: x, y: positions[currentIndex].y - 50 }
   },
   changePlayersMoney: (playerId: number, difference: number) => {
@@ -98,7 +101,8 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
     });
 
     set({ cells: newCells });
-  }
+  },
+  setPlayers: (players) => set({ players }), 
 }))
 
 export default usePlayersStore;

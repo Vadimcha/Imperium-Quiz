@@ -6,12 +6,10 @@ import playersStore from "./playersStore.ts";
 import {PLAYER_COUNT} from "../utils";
 import {Quiz} from "../domain/quiz.ts";
 import {getQuestions} from "../utils/getQuestions.ts";
-import { IPlayer } from "../domain/player.ts";
 
 export type processType = 'wait' | 'move'
 
 interface GameState {
-  players: IPlayer[],
   activePlayer: number,
   move: number,
   process: processType,
@@ -19,11 +17,9 @@ interface GameState {
   changeProcess: (value: processType) => void,
   cubicValue: number | null,
   setActivePlayer: (playerId?: number) => void,
-  setPlayers: (players: IPlayer[]) => void
 }
 
 const useGameStore = create<GameState>()((set, getState) => ({
-  players: [],
   activePlayer: 0,
   move: 0,
   process: 'wait',
@@ -61,9 +57,6 @@ const useGameStore = create<GameState>()((set, getState) => ({
       activePlayer: playerId || (getState().activePlayer + 1 + PLAYER_COUNT) % PLAYER_COUNT
     }))
   },
-  setPlayers: (players) => {
-    set({players })
-  }
 }))
 
 export default useGameStore;

@@ -3,7 +3,7 @@ import usePlayersStore from "../../store/playersStore.ts";
 import {characters, ICharacter} from "../../data/characters.ts";
 import s from './PlayersQueue.module.css'
 import useQuizStore from "../../store/quizStore.ts";
-import {useEffect, useState} from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export const PlayersQueue = () => {
   const { activePlayer } = useGameStore();
@@ -28,27 +28,30 @@ export const PlayersQueue = () => {
             else if ((activePlayer + 1) % players.length === player.id)
               className = s.second_player
 
-            return <img
-              key={player.id}
-              className={className}
-              src={characters[player.id].fullImg}
-              alt="Игрок"
-            />
+            // return <img
+            //   key={player.id}
+            //   className={className}
+            //   src={players.find(x => x.id == player.id)!.fullImg}
+            //   alt="Игрок"
+            // />
+              return <Fragment/>
           }) }
         </div>
       </div>
     )
   }
   else {
-    const player = players.find((player: ICharacter) => player.id === activePlayer) || players[0];
-    return (
-      <div className={s.container}>
-        <img
-          className={s.active_player}
-          src={characters[player.id].fullImg}
-          alt="Игрок"
-        />
-      </div>
-    )
+    const player = players.find((player: ICharacter) => player.id === activePlayer);
+    if (player) {
+      return (
+          <div className={s.container}>
+            {/*<img*/}
+            {/*    className={s.active_player}*/}
+            {/*    src={player.fullImg}*/}
+            {/*    alt="Игрок"*/}
+            {/*/>*/}
+          </div>
+      )
+    }
   }
 }

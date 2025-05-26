@@ -16,9 +16,11 @@ import { Cube } from "./components/cube/cube.tsx";
 import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
 import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
 import { GameStartPage } from "./components/game-start/game-start-page.tsx";
+import usePlayersStore from "./store/playersStore.ts";
 
 function App() {
-  const { nextMove, players } = useGameStore();
+  const { nextMove } = useGameStore();
+  const { players } = usePlayersStore();
   const { setQuiz } = useQuizStore();
 
   return (
@@ -38,9 +40,11 @@ function App() {
               onClick={ () => setQuiz(QUIZZES[0], QUIZ_RESULT_MESSAGE)}
           >Квиз
           </button>
-          <CharacterFull playerId={0} />
-          <CharacterFull playerId={1} />
-          <CharacterFull playerId={2} />
+          {
+              players.map(player => {
+                  return <CharacterFull playerId={player.id} />
+              })
+          }
           <CharacterAvatar />
 
           <PlayersQueue />
