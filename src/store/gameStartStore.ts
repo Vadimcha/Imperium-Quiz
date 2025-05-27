@@ -1,4 +1,4 @@
-import { generateId, getRandomPlayerColor } from "../domain/player.ts";
+import { getRandomPlayerColor } from "../domain/player.ts";
 import { create } from "zustand/index";
 import usePlayersStore from "./playersStore.ts";
 import { ICharacter, INITIAL_BUDGET, INITIAL_RANK } from "../data/characters.ts";
@@ -13,7 +13,7 @@ export interface IGameStartStore {
 const useGameStartStore = create<IGameStartStore>()((set, getState) => ({
     players: [
         {
-            id: generateId(),
+            id: 0,
             name: "Игрок 1",
             color: getRandomPlayerColor([]),
             money: INITIAL_BUDGET,
@@ -23,7 +23,7 @@ const useGameStartStore = create<IGameStartStore>()((set, getState) => ({
     ],
     addPlayer: () => {
         const newPlayer: ICharacter = {
-            id: generateId(),
+            id: getState().players.length,
             name: `Игрок ${getState().players.length + 1}`,
             color: getRandomPlayerColor(getState().players),
             money: INITIAL_BUDGET,

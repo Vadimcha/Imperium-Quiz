@@ -24,7 +24,7 @@ export const CharacterAvatar = () => {
                     <div
                         style={{ outline: (activePlayer == i ? "3px solid #90ee90" : "") }}
                         className="stats" >
-                        <p className={ 'stats_unit' }>{ Math.round(players[activePlayer].money) } 💰</p>
+                        <p className={ 'stats_unit' }>{ Math.round(player.money) } 💰</p>
                         {/*<p className={ 'stats_unit' }>{ players[activePlayer].rank } ⚜️</p>*/ }
                     </div>
                     { showMoney && <Lottie

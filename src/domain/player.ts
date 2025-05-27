@@ -11,7 +11,3 @@ export function getRandomPlayerColor(players: ICharacter[]) {
     
     return freeColors[Math.floor(Math.random() * freeColors.length)]
 }
-
-export function generateId() {
-    return Math.round(Math.random() * 1000000)
-}

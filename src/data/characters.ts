@@ -1,6 +1,6 @@
 import { PlayerColor } from "../domain/player.ts";
 
-export type RANK = 'Король' | 'Герцог' | 'Граф' | 'Рыцарь' | 'Ремесленник' | 'Крестьянин' | 'Раб';
+export type RANK = 'Король' | 'Герцог' | 'Граф' | 'Рыцарь' | 'Ремесленник' | 'Крестьянин' | 'Шут';
 
 export const INITIAL_BUDGET = 500;
 export const INITIAL_RANK: RANK = 'Крестьянин';

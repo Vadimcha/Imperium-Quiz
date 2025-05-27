@@ -2,7 +2,7 @@ import { FC, memo, useState } from "react";
 import { Button, Textfield } from "react-untitled-ui";
 import useGameStartStore from "../../store/gameStartStore.ts";
 import styles from "./game-start.module.scss";
-import { IPlayer } from "../../domain/player.ts";
+import {ICharacter} from "../../data/characters.ts";
 
 
 export const GameStartPage: FC = memo(() => {
@@ -12,7 +12,7 @@ export const GameStartPage: FC = memo(() => {
         <h3 className={styles.text}>Imperium Quiz</h3>
         {
             gameStartStore.players.map((player, position) => {
-                return <PlayerInput player={player} position={position}/>
+                return <PlayerInput key={player.id} player={player} position={position}/>
             })
         }
         <Button
@@ -35,7 +35,7 @@ export const GameStartPage: FC = memo(() => {
 
 
 export type PlayerInputProps = {
-    player: IPlayer,
+    player: ICharacter,
     position: number,
 }
 

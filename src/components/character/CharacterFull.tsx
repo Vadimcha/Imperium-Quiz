@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import usePlayersStore from "../../store/playersStore.ts";
+import {useEffect} from "react";
 
 interface CharacterFullProps {
     playerId: number,
@@ -9,7 +10,9 @@ interface CharacterFullProps {
 export const CharacterFull = ({playerId, height = 100}: CharacterFullProps) => {
     const playersStore = usePlayersStore();
     const currentPlayer = playersStore.players.find(x => x.id == playerId)!
-
+  useEffect(() => {
+    console.log(JSON.stringify(playersStore.players))
+  }, []);
     if (currentPlayer) {
         return (
             <motion.img
@@ -24,6 +27,10 @@ export const CharacterFull = ({playerId, height = 100}: CharacterFullProps) => {
                     left: 0,
                     width: 80,
                     height: height,
+                    filter: `drop-shadow(-1px -1px 0 ${currentPlayer.color})
+                             drop-shadow(1px -1px 0 ${currentPlayer.color})
+                             drop-shadow(-1px 1px 0 ${currentPlayer.color})
+                             drop-shadow(1px 1px 0 ${currentPlayer.color})`
                 } }
             />
         );
