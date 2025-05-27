@@ -3,6 +3,7 @@ import { create } from "zustand/index";
 import { INITIAL_CITIES } from "../data/cities.ts";
 import { ICharacter } from "../data/characters.ts";
 import usePlayersStore from "./playersStore.ts";
+import { QuizType } from "../domain/quiz.ts";
 
 export interface ICitiesStore {
     cities: ICity[],
@@ -68,8 +69,22 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
         }
     },
     setPopup: (popup) => {
+        console.log("set popup", popup)
         set({ cityPopup: popup })
     },
 }))
 
 export default useCitiesStore
+
+export function getCityQuizType(city: ICity, player: ICharacter): QuizType {
+    if (city.ownerId == player.id && city.levels[city.currentLevel].priceToNextLevel) {
+        return "can-upgrade-city"
+    }
+    if (city.ownerId != null && city.ownerId != player.id) { 
+        return "should-pay-tax"
+    }
+    if (city.ownerId == null) {
+        return "can-buy-city"
+    }
+    return "just-chilling"
+}

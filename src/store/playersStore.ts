@@ -3,6 +3,8 @@ import {positions} from "../components/cells/positions.ts";
 import {PLAYER_COUNT} from "../utils";
 import {ICharacter, RANK_RANGES} from "../data/characters.ts";
 import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
+import { IMove, movesData } from "../data/moves.ts";
+import useGameStore from "./gameStore.ts";
 
 interface PlayersState {
   players: ICharacter[],
@@ -128,5 +130,10 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
     })
   }
 }))
+
+export function getCurrentPlayer(): ICharacter {
+  const activePlayer = useGameStore.getState().activePlayer
+  return usePlayersStore.getState().players[activePlayer]
+}
 
 export default usePlayersStore;

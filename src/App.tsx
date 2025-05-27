@@ -17,6 +17,7 @@ import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
 import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
 import { GameStartPage } from "./components/game-start/game-start-page.tsx";
 import usePlayersStore from "./store/playersStore.ts";
+import { CityPopup } from "./components/city-popup/city-popup.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
@@ -53,6 +54,7 @@ function App() {
           <Cells />
           <QuizPopup />
           <Cube />
+          <CityPopup/>
 
           {
               players.length == 0 && <GameStartPage/>

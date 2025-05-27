@@ -1,5 +1,4 @@
 import useGameStore, { getCurrentMove } from "../store/gameStore.ts";
-import quizStore from "../store/quizStore.ts";
 import useQuizStore from "../store/quizStore.ts";
 import usePlayersStore from "../store/playersStore.ts";
 import useCitiesStore from "../store/citiesStore.ts";
@@ -55,11 +54,13 @@ export function handleQuizFinish() {
         if (isWin && price && player.money >= price && city.ownerId == player.id) {
             citiesStore.setPopup({
                 title: `Вы можете прокачать свой город до ${nextLevel.level} уровня`,
-                message: `Это будет стоить ${nextLevel.priceToNextLevel}, ` +
-                    `а налог для других игроков составит ${nextLevel.tax}`,
+                message: `Это будет стоить ${nextLevel.priceToNextLevel} 💰, ` +
+                    `а налог для наступивших сюда игроков составит ${nextLevel.tax} 💰`,
                 cost: price,
                 type: "upgrade-city",
                 haveToDo: false,
+                city: city,
+                player: player,
             })
         }
     }
@@ -70,10 +71,12 @@ export function handleQuizFinish() {
         if (isWin && price && player.money >= price) {
             citiesStore.setPopup({
                 title: "Вы можете купить этот город",
-                message: `Это будет стоить ${price}, а налог для других игроков составит ${city.levels[0].tax}`,
+                message: `Это будет стоить ${price} 💰, а налог для наступивших игроков составит ${city.levels[0].tax} 💰`,
                 cost: price,
                 type: "buy-city",
                 haveToDo: false,
+                city: city,
+                player: player,
             })
         }
     }
@@ -85,10 +88,12 @@ export function handleQuizFinish() {
         if (!isWin && tax && player.money >= tax) {
             citiesStore.setPopup({
                 title: "Вы должны заплатить налог",
-                message: `Это будет стоить ${tax}. Налог получит игрок ${owner.name}`,
+                message: `Это будет стоить ${tax} 💰. Налог получит игрок ${owner.name}`,
                 cost: tax,
                 type: "pay-tax",
                 haveToDo: true,
+                city: city,
+                player: player,
             })
         } else if (!isWin && tax && player.money < tax) {
             playerStore.playerLoose(player.id)
