@@ -1,6 +1,14 @@
+import useGameStore, { getCurrentMove } from "../store/gameStore.ts";
+import quizStore from "../store/quizStore.ts";
+import useQuizStore from "../store/quizStore.ts";
+import usePlayersStore from "../store/playersStore.ts";
+import useCitiesStore from "../store/citiesStore.ts";
+import { ICity } from "./city.ts";
+
 export type Quiz = {
     name: string,
-    questions: QuizQuestion[]
+    questions: QuizQuestion[],
+    type: QuizType,
 }
 
 export type QuizQuestion = {
@@ -23,8 +31,70 @@ export type QuizResult = {
     isWin: boolean,
 }
 
+export type QuizType = "can-buy-city" | "can-upgrade-city" | "just-chilling" | "should-pay-tax"
+
 export type QuizResultMessage = {
     winMessage: string,
     loseMessage: string,
 }
 
+export function handleQuizFinish() {
+    const gameStore = useGameStore.getState()
+    const playerStore = usePlayersStore.getState()
+    const quizStore = useQuizStore.getState()
+    const citiesStore = useCitiesStore.getState()
+    
+    const quiz = quizStore.quiz!
+    const isWin = quizStore.quizResult!.isWin
+    const player = playerStore.players[gameStore.activePlayer]
+    
+    if (quiz.type == "can-upgrade-city") {
+        const city = getCurrentMove() as ICity
+        const nextLevel = city.levels[city.currentLevel + 1]
+        const price = nextLevel.priceToNextLevel
+        if (isWin && price && player.money >= price && city.ownerId == player.id) {
+            citiesStore.setPopup({
+                title: `Вы можете прокачать свой город до ${nextLevel.level} уровня`,
+                message: `Это будет стоить ${nextLevel.priceToNextLevel}, ` +
+                    `а налог для других игроков составит ${nextLevel.tax}`,
+                cost: price,
+                type: "upgrade-city",
+                haveToDo: false,
+            })
+        }
+    }
+    
+    if (quiz.type == "can-buy-city") {
+        const city = getCurrentMove() as ICity
+        const price = city.price
+        if (isWin && price && player.money >= price) {
+            citiesStore.setPopup({
+                title: "Вы можете купить этот город",
+                message: `Это будет стоить ${price}, а налог для других игроков составит ${city.levels[0].tax}`,
+                cost: price,
+                type: "buy-city",
+                haveToDo: false,
+            })
+        }
+    }
+
+    if (quiz.type == "should-pay-tax") {
+        const city = getCurrentMove() as ICity
+        const tax = city.levels[city.currentLevel].tax
+        const owner = playerStore.players.find(x => x.id == city.ownerId)!
+        if (!isWin && tax && player.money >= tax) {
+            citiesStore.setPopup({
+                title: "Вы должны заплатить налог",
+                message: `Это будет стоить ${tax}. Налог получит игрок ${owner.name}`,
+                cost: tax,
+                type: "pay-tax",
+                haveToDo: true,
+            })
+        } else if (!isWin && tax && player.money < tax) {
+            playerStore.playerLoose(player.id)
+        }
+    }
+
+    quizStore.finish();
+    gameStore.setActivePlayer();
+}

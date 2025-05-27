@@ -10,7 +10,8 @@ interface PlayersState {
   changePlayersMoney: (playerId: number, difference: number) => void,
   getPosition: (playerId: number) => { x: number, y: number },
   movePlayer: (playerId: number, value: number) => void,
-  setPlayers: (players: ICharacter[]) => void, 
+  setPlayers: (players: ICharacter[]) => void,
+  playerLoose: (playerId: number) => void,
 }
 
 const initialCells = [
@@ -102,7 +103,13 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
 
     set({ cells: newCells });
   },
-  setPlayers: (players) => set({ players }), 
+  setPlayers: (players) => set({ players }),
+  playerLoose: (playerId: number) => {
+    // TODO показывать сообщение, что чел проиграл и чекать нет ли победителя
+    set({
+      players: getState().players.filter(x => x.id != playerId)
+    })
+  }
 }))
 
 export default usePlayersStore;

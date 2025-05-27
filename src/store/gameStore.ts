@@ -6,6 +6,7 @@ import playersStore from "./playersStore.ts";
 import {PLAYER_COUNT} from "../utils";
 import {Quiz} from "../domain/quiz.ts";
 import {getQuestions} from "../utils/getQuestions.ts";
+import { IMove, movesData } from "../data/moves.ts";
 
 export type processType = 'wait' | 'move'
 
@@ -58,5 +59,10 @@ const useGameStore = create<GameState>()((set, getState) => ({
     }))
   },
 }))
+
+export function getCurrentMove(): IMove {
+  const moveId = useGameStore.getState().move
+  return movesData.find(x => x.id == moveId)!
+}
 
 export default useGameStore;
