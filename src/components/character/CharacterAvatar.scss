@@ -33,7 +33,18 @@
     aspect-ratio: 1;
     border: 1px solid white;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include untitled-effect-shadow-md;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 .stats_unit {

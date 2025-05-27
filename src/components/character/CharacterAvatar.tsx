@@ -17,13 +17,15 @@ export const CharacterAvatar = () => {
         <div className="container">
             {
                 players.map(((player, i) => <div className="player_tile">
-                    <div 
-                        className={ "avatar" }
-                        style={{ backgroundColor: player.color }}
-                    />
                     <div
-                        style={{ outline: (activePlayer == i ? "3px solid #90ee90" : "") }}
-                        className="stats" >
+                      className="avatar"
+                      style={{backgroundColor: player.color}}
+                    >
+                        <img className="avatar-img" src={`/characters/roles_head/${player.rank}.png`} alt="avatar"/>
+                    </div>
+                    <div
+                      style={{outline: (activePlayer == i ? "3px solid #90ee90" : "")}}
+                      className="stats" >
                         <p className={ 'stats_unit' }>{ Math.round(player.money) } 💰</p>
                         {/*<p className={ 'stats_unit' }>{ players[activePlayer].rank } ⚜️</p>*/ }
                     </div>
