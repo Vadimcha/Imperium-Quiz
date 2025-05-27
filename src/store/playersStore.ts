@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import {positions} from "../components/cells/positions.ts";
 import {PLAYER_COUNT} from "../utils";
-import {ICharacter} from "../data/characters.ts";
+import {ICharacter, RANK_RANGES} from "../data/characters.ts";
 import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
 
 interface PlayersState {
@@ -12,13 +12,13 @@ interface PlayersState {
   movePlayer: (playerId: number, value: number) => void,
   setPlayers: (players: ICharacter[]) => void,
   playerLoose: (playerId: number) => void,
+  setRankByScore: (playerId: number) => void,
 }
 
 const initialCells = [
   Array.from({ length: PLAYER_COUNT }, (_, idx: number) => idx),
   ...Array.from({ length: positions.length - 1 }, () => []),
 ];
-console.log(initialCells)
 
 const usePlayersStore = create<PlayersState>()((set, getState) => ({
   players: [],
@@ -40,7 +40,6 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
         x += 30;
       }
     }
-    console.log( { x: x, y: positions[currentIndex].y - 50 })
     return { x: x, y: positions[currentIndex].y - 50 }
   },
   changePlayersMoney: (playerId: number, difference: number) => {
@@ -83,8 +82,26 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
         });
       }
     }, stepTime);
+    getState().setRankByScore(playerId)
   },
+  setRankByScore: (playerId: number) => {
+    const player = getState().players.find(p => p.id == playerId);
+    if (!player) return;
 
+    const found = RANK_RANGES.find(range =>
+      player.money >= range.min && (range.max === null || player.money < range.max)
+    );
+
+    if (found && player.rank !== found.title) {
+      console.log("BIBA", found);
+      const updatedPlayers = getState().players.map(p => {
+        if (p.id === player.id) return { ...p, rank: found.title };
+        return p;
+      });
+
+      set({ players: updatedPlayers });
+    }
+  },
   movePlayer: (playerId: number, value: number) => {
     const cells = getState().cells;
     const currentIndex = Math.max(cells.findIndex(row => row.includes(playerId)), 0);
