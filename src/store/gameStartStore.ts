@@ -18,6 +18,7 @@ const useGameStartStore = create<IGameStartStore>()((set, getState) => ({
             color: getRandomPlayerColor([]),
             money: INITIAL_BUDGET,
             rank: INITIAL_RANK,
+            position: 0,
             fullImg: "/characters/full/full_0.png" // TODO
         }
     ],
@@ -28,6 +29,7 @@ const useGameStartStore = create<IGameStartStore>()((set, getState) => ({
             color: getRandomPlayerColor(getState().players),
             money: INITIAL_BUDGET,
             rank: INITIAL_RANK,
+            position: 0,
             fullImg: "/characters/full/full_0.png" // TODO
         }
         

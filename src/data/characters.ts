@@ -27,6 +27,7 @@ export const RANK_RANGES: RankRange[] = [
 ];
 
 export const INITIAL_BUDGET = 1000;
+export const BUDGET_EVERY_ROUND = 500;
 export const INITIAL_RANK: RANK = 'Крестьянин';
 
 export interface ICharacter {
@@ -36,6 +37,7 @@ export interface ICharacter {
   money: number,
   rank: RANK,
   name: string,
+  position: number,
 }
 
 export const characters = [

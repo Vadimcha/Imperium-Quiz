@@ -3,7 +3,6 @@ import {positions} from "../components/cells/positions.ts";
 import {PLAYER_COUNT} from "../utils";
 import {ICharacter, RANK_RANGES} from "../data/characters.ts";
 import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
-import { IMove, movesData } from "../data/moves.ts";
 import useGameStore from "./gameStore.ts";
 
 interface PlayersState {
@@ -105,22 +104,15 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
     }
   },
   movePlayer: (playerId: number, value: number) => {
-    const cells = getState().cells;
-    const currentIndex = Math.max(cells.findIndex(row => row.includes(playerId)), 0);
-
-    const newIndex = (currentIndex + value + cells.length) % cells.length;
-
-    const newCells = cells.map((row, idx) => {
-      if (idx === currentIndex) {
-        return row.filter(p => p !== playerId);
-      } else if (idx === newIndex) {
-        return [...row, playerId];
-      } else {
-        return row;
-      }
-    });
-
-    set({ cells: newCells });
+    set({
+      players: getState().players.map(player => {
+        if (player.id == playerId) {
+          return {...player, position: value}
+        } else {
+          return player
+        }
+      })
+    })
   },
   setPlayers: (players) => set({ players }),
   playerLoose: (playerId: number) => {

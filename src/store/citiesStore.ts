@@ -4,6 +4,8 @@ import { INITIAL_CITIES } from "../data/cities.ts";
 import { ICharacter } from "../data/characters.ts";
 import usePlayersStore from "./playersStore.ts";
 import { QuizType } from "../domain/quiz.ts";
+import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
+import useGameStore from "./gameStore.ts";
 
 export interface ICitiesStore {
     cities: ICity[],
@@ -32,7 +34,12 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
                     }
                 })
             })
+            usePlayersStore.getState().changePlayersMoney(
+                player.id,
+                -city.price,
+            )
         }
+        useGameStore.getState().setNextPlayerMove();
     },
     payTax: (cityId, player) => {
         const city = getState().cities.find(x => x.id == cityId)!
@@ -45,8 +52,14 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
                     player.id,
                     -taxToPay,
                 )
+                usePlayersStore.getState().changePlayersMoney(
+                    city.ownerId,
+                    taxToPay
+                )
+                useMoneyAnimation.getState().play()
             }
         }
+        useGameStore.getState().setNextPlayerMove();
     },
     upgrade: (cityId) => {
         const city = getState().cities.find(x => x.id == cityId)!
@@ -67,10 +80,13 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
             })
             usePlayersStore.getState().changePlayersMoney(owner.id, -level.priceToNextLevel)
         }
+        useGameStore.getState().setNextPlayerMove();
     },
     setPopup: (popup) => {
-        console.log("set popup", popup)
         set({ cityPopup: popup })
+        if (popup == null) {
+            useGameStore.getState().setNextPlayerMove();
+        }
     },
 }))
 

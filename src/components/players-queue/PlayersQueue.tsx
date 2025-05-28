@@ -1,6 +1,6 @@
 import useGameStore from "../../store/gameStore.ts";
 import usePlayersStore from "../../store/playersStore.ts";
-import {characters, ICharacter} from "../../data/characters.ts";
+import {ICharacter} from "../../data/characters.ts";
 import s from './PlayersQueue.module.css'
 import useQuizStore from "../../store/quizStore.ts";
 import { Fragment, useEffect, useState } from "react";

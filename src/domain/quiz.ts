@@ -1,4 +1,4 @@
-import useGameStore, { getCurrentMove } from "../store/gameStore.ts";
+import useGameStore, { getCurrentPlayerMove } from "../store/gameStore.ts";
 import useQuizStore from "../store/quizStore.ts";
 import usePlayersStore from "../store/playersStore.ts";
 import useCitiesStore from "../store/citiesStore.ts";
@@ -42,13 +42,14 @@ export function handleQuizFinish() {
     const playerStore = usePlayersStore.getState()
     const quizStore = useQuizStore.getState()
     const citiesStore = useCitiesStore.getState()
+    let shouldSetNextMove = true
     
     const quiz = quizStore.quiz!
     const isWin = quizStore.quizResult!.isWin
     const player = playerStore.players[gameStore.activePlayer]
     
     if (quiz.type == "can-upgrade-city") {
-        const city = getCurrentMove() as ICity
+        const city = getCurrentPlayerMove() as ICity
         const nextLevel = city.levels[city.currentLevel + 1]
         const price = nextLevel.priceToNextLevel
         if (isWin && price && player.money >= price && city.ownerId == player.id) {
@@ -62,11 +63,12 @@ export function handleQuizFinish() {
                 city: city,
                 player: player,
             })
+            shouldSetNextMove = false
         }
     }
     
     if (quiz.type == "can-buy-city") {
-        const city = getCurrentMove() as ICity
+        const city = getCurrentPlayerMove() as ICity
         const price = city.price
         if (isWin && price && player.money >= price) {
             citiesStore.setPopup({
@@ -78,11 +80,12 @@ export function handleQuizFinish() {
                 city: city,
                 player: player,
             })
+            shouldSetNextMove = false
         }
     }
 
     if (quiz.type == "should-pay-tax") {
-        const city = getCurrentMove() as ICity
+        const city = getCurrentPlayerMove() as ICity
         const tax = city.levels[city.currentLevel].tax
         const owner = playerStore.players.find(x => x.id == city.ownerId)!
         if (!isWin && tax && player.money >= tax) {
@@ -95,11 +98,14 @@ export function handleQuizFinish() {
                 city: city,
                 player: player,
             })
+            shouldSetNextMove = false
         } else if (!isWin && tax && player.money < tax) {
             playerStore.playerLoose(player.id)
         }
     }
 
     quizStore.finish();
-    gameStore.setActivePlayer();
+    if (shouldSetNextMove) {
+        gameStore.setNextPlayerMove();
+    }
 }
