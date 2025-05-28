@@ -19,6 +19,7 @@ import { GameStartPage } from "./components/game-start/game-start-page.tsx";
 import usePlayersStore from "./store/playersStore.ts";
 import { CityPopup } from "./components/city-popup/city-popup.tsx";
 import { CityDetailPopup } from "./components/city-detail-popup/city-detail-popup.tsx";
+import {CharacterDetailPopup} from "./components/character-detail-popup/character-detail-popup.tsx";
 import { BattleStartPopup } from "./components/battle-start-popup/battle-start-popup.tsx";
 import { BattleResultPopup } from "./components/battle-result-popup/battle-result-popup.tsx";
 
@@ -59,6 +60,7 @@ function App() {
           <Cube />
           <CityPopup/>
           <CityDetailPopup/>
+          <CharacterDetailPopup/>
           <BattleStartPopup/>
           <BattleResultPopup/>
 

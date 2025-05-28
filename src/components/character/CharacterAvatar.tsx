@@ -5,11 +5,13 @@ import { useMoneyAnimation } from "../../utils/animations/money/money-animation.
 import money from "../../assets/money.json";
 import Lottie from "lottie-react";
 import { Fragment } from "react";
+import useCharacterDetailPopup from "../../store/characterDetailPopupStore.ts";
 
 export const CharacterAvatar = () => {
     const {activePlayer} = useGameStore()
     const {players} = usePlayersStore();
     const {showMoney} = useMoneyAnimation();
+    const {showPopup} = useCharacterDetailPopup()
     
     if (players.length == 0) return <Fragment/>
 
@@ -20,6 +22,7 @@ export const CharacterAvatar = () => {
                     <div
                       className="avatar"
                       style={{backgroundColor: player.color}}
+                      onClick={() => showPopup(player.id)}
                     >
                         <img className="avatar-img" src={`/characters/roles_head/${player.rank}.png`} alt="avatar"/>
                     </div>
