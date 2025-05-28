@@ -48,13 +48,14 @@ export const QuizPopup: FC<QuizProps> = memo(() => {
 
                             <div className={ styles.answersList }>
                                 { currentQuestion.answers.map((answer) => (
-                                  /* TODO Для тестирования (${answer.isCorrect}) */
+                                    /* TODO Для тестирования (${answer.isCorrect}) */
                                     <div
                                         key={ answer.id }
                                         className={ styles.answer }
                                         onClick={ () => quizStore.setAnswer(answer) }
                                     >
-                                        <div className={ styles.text }>{ `${answer.content} (${answer.isCorrect})` }</div>
+                                        <div
+                                            className={ styles.text }>{ `${ answer.content } (${ answer.isCorrect })` }</div>
                                         {
                                             quizStore.currentAnswerId == answer.id && <img
                                                 src="/tick.webp"
@@ -63,6 +64,15 @@ export const QuizPopup: FC<QuizProps> = memo(() => {
                                     </div>
                                 )) }
                             </div>
+                            {
+                                quizStore.isCorrectShowing && <motion.div
+                                    initial={ {opacity: 0, y: 10} }
+                                    animate={ {opacity: 1, y: 0} }
+                                    exit={ {opacity: 0, y: 10} }
+                                    className={ styles.successMessage }>
+                                    Верно!
+                                </motion.div>
+                            }
                             <AnimatePresence mode="wait">
                                 {
                                     quizStore.currentAnswerId && <motion.div
@@ -83,7 +93,7 @@ export const QuizPopup: FC<QuizProps> = memo(() => {
                 <AnimatePresence mode={ "wait" }>
                     {
                         quizStore.quizResult && <motion.div
-                        style={{ position: 'absolute', width: '100%', height: '100%', top: 36, bottom: 36, left: 0 }}
+                            style={ {position: 'absolute', width: '100%', height: '100%', top: 36, bottom: 36, left: 0} }
                             initial={ {opacity: 0, x: 50} }
                             animate={ {opacity: 1, x: 0} }
                             exit={ {opacity: 0, x: -50} }

@@ -42,7 +42,6 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
                 -city.price,
             )
         }
-        useGameStore.getState().setNextPlayerMove();
     },
     payTax: (cityId, player) => {
         const city = getState().cities.find(x => x.id == cityId)!
@@ -62,7 +61,6 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
                 useMoneyAnimation.getState().play()
             }
         }
-        useGameStore.getState().setNextPlayerMove();
     },
     upgrade: (cityId) => {
         const city = getState().cities.find(x => x.id == cityId)!
@@ -83,7 +81,6 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
             })
             usePlayersStore.getState().changePlayersMoney(owner.id, -level.priceToNextLevel)
         }
-        useGameStore.getState().setNextPlayerMove();
     },
     setPopup: (popup) => {
         set({ cityPopup: popup })

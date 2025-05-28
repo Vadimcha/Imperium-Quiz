@@ -28,9 +28,10 @@ export type QuizResult = {
     score: string,
     message: string,
     isWin: boolean,
+    correctCount: number,
 }
 
-export type QuizType = "can-buy-city" | "can-upgrade-city" | "just-chilling" | "should-pay-tax"
+export type QuizType = "can-buy-city" | "can-upgrade-city" | "just-chilling" | "should-pay-tax" | "battle"
 
 export type QuizResultMessage = {
     winMessage: string,

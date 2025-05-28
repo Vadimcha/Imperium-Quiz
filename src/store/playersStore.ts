@@ -84,6 +84,8 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
       }
     }, stepTime);
     getState().setRankByScore(playerId)
+    
+    // TODO чекать проиграл ли чел
   },
   setRankByScore: (playerId: number) => {
     const player = getState().players.find(p => p.id == playerId);

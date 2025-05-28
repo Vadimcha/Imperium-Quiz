@@ -1,0 +1,42 @@
+@import "react-untitled-ui/src/styles/typography";
+
+.battleContainer {
+    pointer-events: all;
+    height: 80vh;
+    width: 45vw;
+    border-radius: 27px;
+    padding: 6px;
+    border: 3px solid white;
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: white;
+        padding: 64px;
+        border-radius: 24px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+
+            .playerName {
+                @include untitled-text-display-lg-semibold;
+            }
+            
+            .vs, .vs img {
+                width: 250px;
+            }
+            
+            .whoStart {
+                @include untitled-text-display-lg-semibold;
+                margin: auto 0;
+                text-align: center;
+                white-space: pre-line
+            }
+        }
+    }
+}

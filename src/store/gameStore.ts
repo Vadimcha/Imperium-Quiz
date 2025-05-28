@@ -10,6 +10,7 @@ import { calculateSumEveryRound, getCityQuizType } from "./citiesStore.ts";
 import { ICity } from "../domain/city.ts";
 import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
 import usePlayersStore from "./playersStore.ts";
+import { startBattle } from "./battleStore.ts";
 
 export type processType = 'wait' | 'move'
 
@@ -55,13 +56,14 @@ const useGameStore = create<GameState>()((set, getState) => ({
     const currentCell = getCurrentPlayerMove()
     console.log(currentCell)
     if (currentCell.type == "city") {
-      // TODO: смотреть на тип ячейки в которую попали и открывать нужный квиз
       const quiz: Quiz = {
-        name: "тестовый квиз",
+        name: "город",
         questions: getQuestions(),
         type: getCityQuizType(currentCell as ICity, getCurrentPlayer())
       }
       useQuizStore.getState().setQuiz(quiz, QUIZ_RESULT_MESSAGE)
+    } else if (currentCell.type == "battle") {
+      startBattle((player.position + nextMove) % positions.length)
     } else {
       // отдаем ход следующему игроку
       getState().setNextPlayerMove()

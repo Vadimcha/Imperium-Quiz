@@ -1,3 +1,6 @@
+@import "react-untitled-ui/src/styles/typography";
+@import "react-untitled-ui/src/styles/shadows";
+
 .quizContainer {
     pointer-events: all;
     height: 80vh;
@@ -68,6 +71,17 @@
                 }
             }
 
+            .successMessage {
+                position: absolute;
+                bottom: 100px;
+                background: #4CAF50;
+                padding: 8px 16px;
+                border-radius: 100px;
+                @include untitled-text-text-md-medium;
+                @include untitled-effect-shadow-lg;
+                color: white;
+            }
+            
             .button {
                 display: flex;
                 align-items: center;

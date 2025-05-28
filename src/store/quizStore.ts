@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Quiz, QuizQuestionAnswer, QuizResult, QuizResultMessage } from "../domain/quiz.ts";
+import useBattleStore from "./battleStore.ts";
 
 
 interface QuizState {
@@ -13,6 +14,7 @@ interface QuizState {
     moveNext: () => void,
     setQuiz: (quiz: Quiz, message: QuizResultMessage) => void,
     finish: () => void,
+    isCorrectShowing: boolean,
 }
 
 const useQuizStore = create<QuizState>()(
@@ -23,12 +25,14 @@ const useQuizStore = create<QuizState>()(
     correctCount: 0,
     quizResult: null,
     resultMessage: null,
+    isCorrectShowing: false,
     setAnswer: (answer: QuizQuestionAnswer) => {
         set(() => ({ currentAnswerId: answer.id }))
     },
-    moveNext: () => {
+    moveNext: async () => {
         const state = getState()
         if (state.quiz == null || state.currentQuestionId == null || state.currentAnswerId == null) return;
+        if (state.isCorrectShowing) return;
         
         const isLastQuestion = state.quiz.questions
             .findIndex(q => q.id == state.currentQuestionId) == state.quiz.questions.length - 1
@@ -47,9 +51,27 @@ const useQuizStore = create<QuizState>()(
                     score: score,
                     isWin: isWinner,
                     message: message,
+                    correctCount: correctCount,
                 }
             }))
+        } else if (state.quiz.type == "battle" && !isCorrectAnswer) {
+            set({
+                currentQuestionId: null,
+                currentAnswerId: null,
+                quizResult: {
+                    score: `${state.correctCount} балла!`,
+                    isWin: true,
+                    message: state.resultMessage!.loseMessage,
+                    correctCount: state.correctCount,
+                }
+            })
         } else {
+            if (isCorrectAnswer && state.quiz.type == "battle")  {
+                set({ isCorrectShowing: true })
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                set({ isCorrectShowing: false })
+            }
+            
             set(state => ({
                 currentQuestionId: getNextQuestion(state)?.id,
                 currentAnswerId: null,
@@ -64,12 +86,21 @@ const useQuizStore = create<QuizState>()(
             resultMessage: message,
         }))
     },
-    finish: () => set(() => ({
-        quiz: null,
-        quizResult: null,
-        resultMessage: null,
-        correctCount: 0,
-    }))
+    finish: () => {
+        const quiz = getState().quiz
+        const quizResult = getState().quizResult!
+        
+        set(() => ({
+            quiz: null,
+            quizResult: null,
+            resultMessage: null,
+            correctCount: 0,
+        }))
+
+        if (quiz?.type == "battle") {
+            useBattleStore.getState().handleQuizResult(quizResult)
+        }
+    }
 }))
 
 const getNextQuestion = (state: QuizState) => {
