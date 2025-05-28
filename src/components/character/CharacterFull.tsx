@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import usePlayersStore from "../../store/playersStore.ts";
 import { positions } from "../cells/positions.ts";
+import useCharacterDetailPopup from "../../store/characterDetailPopupStore.ts";
 
 interface CharacterFullProps {
     playerId: number,
@@ -11,6 +12,7 @@ export const CharacterFull = ({playerId, height = 100}: CharacterFullProps) => {
     const playersStore = usePlayersStore();
     const currentPlayer = playersStore.players.find(x => x.id == playerId)!
     const position = usePlayerPosition(playerId)
+    const {showPopup} = useCharacterDetailPopup()
     
     if (currentPlayer) {
         return (
@@ -18,11 +20,13 @@ export const CharacterFull = ({playerId, height = 100}: CharacterFullProps) => {
                 initial={ position }
                 animate={ position }
                 transition={ {duration: 1, ease: 'easeInOut'} }
+                onClick={() => showPopup(playerId)}
                 src={ `/characters/roles/${currentPlayer.rank}.png` }
                 style={ {
                     zIndex: 100,
                     position: 'absolute',
                     top: 0,
+                    cursor: 'pointer',
                     left: 0,
                     width: 60,
                     height: height,
