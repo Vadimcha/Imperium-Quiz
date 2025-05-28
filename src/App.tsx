@@ -18,6 +18,7 @@ import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
 import { GameStartPage } from "./components/game-start/game-start-page.tsx";
 import usePlayersStore from "./store/playersStore.ts";
 import { CityPopup } from "./components/city-popup/city-popup.tsx";
+import { CityDetailPopup } from "./components/city-detail-popup/city-detail-popup.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
@@ -55,6 +56,7 @@ function App() {
           <QuizPopup />
           <Cube />
           <CityPopup/>
+          <CityDetailPopup/>
 
           {
               players.length == 0 && <GameStartPage/>

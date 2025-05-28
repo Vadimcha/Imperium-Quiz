@@ -1,0 +1,72 @@
+@import "react-untitled-ui/src/styles/typography";
+
+.cityContainer {
+    pointer-events: all;
+    height: 80vh;
+    width: 45vw;
+    border-radius: 27px;
+    padding: 6px;
+    border: 3px solid white;
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: white;
+        padding: 36px;
+        border-radius: 24px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+
+            .image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .infoContainer {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+                margin-top: 16px;
+
+                .infoTile {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .key {
+                        @include untitled-text-text-md-medium;
+                    }
+
+                    .value {
+                        @include untitled-text-text-md-normal;
+                    }
+                }
+            }
+
+            .levels {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                @include untitled-text-text-md-normal;
+                margin-top: 36px;
+                width: 100%;
+
+                .header {
+                    @include untitled-text-text-sm-medium;
+                }
+                
+                div {
+                    padding: 2px;
+                }
+            }
+
+            .button {
+                margin-top: auto;
+            }
+        }
+    }
+}

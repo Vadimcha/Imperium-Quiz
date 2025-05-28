@@ -9,16 +9,19 @@ import useGameStore from "./gameStore.ts";
 
 export interface ICitiesStore {
     cities: ICity[],
-    cityPopup?: ICityPopup, 
+    cityPopup?: ICityPopup,
+    cityDetailPopup?: ICity,
     buy: (cityId: number, player: ICharacter) => void,
     payTax: (cityId: number, player: ICharacter) => void,
     upgrade: (cityId: number) => void,
-    setPopup: (popup: ICityPopup | undefined) => void, 
+    setPopup: (popup: ICityPopup | undefined) => void,
+    setDetailPopup: (cityId: number | undefined) => void,
 }
 
 const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
     cities: INITIAL_CITIES,
     cityPopup: undefined,
+    cityDetailPopup: undefined,
     buy: (cityId, player) => {
         const city = getState().cities.find(x => x.id == cityId)!
         if (city.ownerId == null && player.money >= city.price) {
@@ -88,6 +91,11 @@ const useCitiesStore =  create<ICitiesStore>()((set, getState) => ({
             useGameStore.getState().setNextPlayerMove();
         }
     },
+    setDetailPopup: (cityId) => {
+        set({
+            cityDetailPopup: getState().cities.find(x => x.id == cityId)
+        })
+    } 
 }))
 
 export default useCitiesStore
@@ -115,4 +123,11 @@ export function calculateSumEveryRound(playerId: number): number {
         },
         0
     )
+}
+
+export function getOwner(cityId: number | undefined): ICharacter | undefined {
+    const players = usePlayersStore.getState().players
+    const cities = useCitiesStore.getState().cities
+    const city = cities.find(x => x.id == cityId)
+    return players.find(x => x.id == city?.ownerId)
 }

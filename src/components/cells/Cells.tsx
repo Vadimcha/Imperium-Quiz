@@ -1,11 +1,15 @@
 import {deltaX, IPoint, positions} from "./positions.ts";
 import {IMove, movesData} from "../../data/moves.ts";
+import useCitiesStore from "../../store/citiesStore.ts";
+import "./Cells.css";
 
 export const Cells = () => {
+  const cityStore = useCitiesStore()
 
   const renderCity = (point: IPoint, moveData: IMove) => {
     return <img
       key={point.id}
+      className="city_cell"
       style={{
         position: "absolute",
         left: `${point.x - 10}px`,
@@ -16,7 +20,7 @@ export const Cells = () => {
       }}
       src={moveData.img}
       alt="city"
-      onClick={() => console.log(`clicked city: id=${point.id}`)}
+      onClick={() => cityStore.setDetailPopup(point.id)}
     />
   }
 

@@ -1,3 +1,11 @@
-.img {
+.city_cell {
+    cursor: pointer;
+    transition: 100ms ease;
+}
 
+.city_cell:hover {
+    filter: drop-shadow(-1px -1px 0 white)
+    drop-shadow(1px -1px 0 white)
+    drop-shadow(-1px 1px 0 white)
+    drop-shadow(1px 1px 0 white)
 }
