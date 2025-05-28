@@ -104,3 +104,15 @@ export function getCityQuizType(city: ICity, player: ICharacter): QuizType {
     }
     return "just-chilling"
 }
+
+export function calculateSumEveryRound(playerId: number): number {
+    return useCitiesStore.getState().cities.reduce(
+        (current, x) => {
+            if (x.ownerId == playerId) {
+                return current + x.levels[x.currentLevel].moneyEveryRound
+            }
+            return current
+        },
+        0
+    )
+}

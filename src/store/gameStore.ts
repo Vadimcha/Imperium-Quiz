@@ -6,9 +6,8 @@ import playersStore, { getCurrentPlayer } from "./playersStore.ts";
 import {Quiz} from "../domain/quiz.ts";
 import {getQuestions} from "../utils/getQuestions.ts";
 import { IMove, movesData } from "../data/moves.ts";
-import { getCityQuizType } from "./citiesStore.ts";
+import { calculateSumEveryRound, getCityQuizType } from "./citiesStore.ts";
 import { ICity } from "../domain/city.ts";
-import { BUDGET_EVERY_ROUND } from "../data/characters.ts";
 import { useMoneyAnimation } from "../utils/animations/money/money-animation.tsx";
 import usePlayersStore from "./playersStore.ts";
 
@@ -42,8 +41,10 @@ const useGameStore = create<GameState>()((set, getState) => ({
     for (let i = 1; i <= nextMove; i++) {
       const nextPosition = (player.position + i) % positions.length 
       usePlayersStore.getState().movePlayer(player.id, nextPosition)
+      
+      // прошли круг
       if (nextPosition == 0) {
-        playersStore.getState().changePlayersMoney(getCurrentPlayer().id, BUDGET_EVERY_ROUND)
+        playersStore.getState().changePlayersMoney(player.id, calculateSumEveryRound(player.id))
         useMoneyAnimation.getState().play()
       }
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -82,5 +83,6 @@ export function getCurrentPlayerMove(): IMove {
   const position = getCurrentPlayer().position
   return movesData[position]!
 }
+
 
 export default useGameStore;

@@ -6,13 +6,14 @@ export interface ICity extends IMove {
     ownerId?: number,
     levels: ICityLevel[],
     price: number,
-    type: "city"
+    type: "city",
 }
 
 export interface ICityLevel {
     level: number,
     tax: number,
     priceToNextLevel?: number,
+    moneyEveryRound: number,
 }
 
 export interface ICityPopup {
