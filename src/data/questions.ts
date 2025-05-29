@@ -123,7 +123,7 @@ export const questions: IQuestion[] = [
   },
   {
     id: 5,
-    question: "Укажите название крепости, у когторой произошло событие, названное потом 'Атака мертвецов'",
+    question: "Крепость, у которой произошло событие, названное потом 'Атака мертвецов'",
     complexity: 7,
     answers: [
       {
@@ -1359,6 +1359,1356 @@ export const questions: IQuestion[] = [
       {
         id: 4,
         content: "Вся власть Советам!",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 51,
+    question: "В каком году был спущен на воду линкор Бисмарк",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "1936",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "1938",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "1939",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "1941",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 52,
+    question: "Как назывался линкор, являвшиёся флагманом флота США до его потопления Бисмарком",
+    complexity: 1,
+    answers: [
+      {
+        id: 1,
+        content: "HMS Prince of Wales",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "HMS Hood",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "HMS Ark Royal",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "HMS King George V",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 53,
+    question: "Какой страной был построен Бисмарк",
+    complexity: 1,
+    answers: [
+      {
+        id: 1,
+        content: "США",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Германия",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Великобритания",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "СССР",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 54,
+    question: "Сколько орудий главного калибра было на Бисмарке",
+    complexity: 1,
+    answers: [
+      {
+        id: 1,
+        content: "6",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "8",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "9",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "12",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 55,
+    question: "Назовите корабль, повредивший рулевое управление Бисмарка",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "HMS Ark Royal",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "HMS Sheffield",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "HMS Victorious",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "HMS Hood",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 56,
+    question: "Для чего разрабатывалось немецкое артеллерийское орудие Дора",
+    complexity: 4,
+    answers: [
+      {
+        id: 1,
+        content: "Для штурма севостополя",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Для обстрела Лондона",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Для разрушения укреплений линии Мажино",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Для уничтожения американских конвоев в атлантическом океане",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 57,
+    question: "Какой калибр имела пушка Дора",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "600мм",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "700мм",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "800мм",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "910мм",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 58,
+    question: "Какой советский танк стал символом победы во второй мировой войне",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "КВ-1",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Т-34",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "ИС",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "БТ-7",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 59,
+    question: "Какой танк был произведён в самом большом количестве в вермахте",
+    complexity: 4,
+    answers: [
+      {
+        id: 1,
+        content: "Tiger I",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "StuG III",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Panther",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Pz.Kpfw. IV",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 60,
+    question: "Какой советский танк был ответом немецкому Тигру",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "Т-44",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Т-70",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "ИС-2",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "СУ-100",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 61,
+    question: "Какой немецкий танк имел наклонную броню(как у Т-34)",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "Tiger I",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Pz.Kpfw. III",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Panther",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Pz2",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 62,
+    question: "Какой танк был самым тяжёлым выпущенным во время второй мировой войны",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "FCM 2C",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Panzerkampfwagen VIII Maus",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "ИС-2",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "СУ-100",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 63,
+    question: "Какая САУ была сделана на базе Т-34",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "СУ-76",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "СУ-100",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "СУ-152",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "ИСУ-152",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 64,
+    question: "Кто стал инициатором политики перестройки",
+    complexity: 1,
+    answers: [
+      {
+        id: 1,
+        content: "Леонид Брежнев",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Константин Черненко",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Юрий Андропов",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Михаил Горбачёв",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 65,
+    question: "Какая программа была ключевой для экономики перестройки",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "Пятилетка",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Железный занавес",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Ускорение",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Коллективизация",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 66,
+    question: "Какое событие ускорило распад СССР",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "Олимпиада-80",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Августовский путч",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Визит Горбачёва в США",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Создание СЭВ",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 67,
+    question: "Какая реформа позволила создавать частные предприятия в СССР",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Программа Жильё-2000",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Колхозный устав",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Закон о кооперации",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Ликвидация Госплана",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 68,
+    question: "Какой термин связан с дефицитом товаров в конце 1980-х",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "Изобилие",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Рынок",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Талоны",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Экспорт",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 69,
+    question: "Какая страна первой вышла из СССР",
+    complexity: 10,
+    answers: [
+      {
+        id: 1,
+        content: "Украина",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Беларусь",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Казахстан",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Литва",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 70,
+    question: "Что означал лозунг Больше социализма",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Очищение социализма от недостатков",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Отказ от реформ",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Роспуск КПСС",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Возврат к политике сталина",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 71,
+    question: "Какой фильм стал символом гласности",
+    complexity: 10,
+    answers: [
+      {
+        id: 1,
+        content: "Бриллиантовая рука",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Москва слезам не верит",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Ирония судьбы",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Покаяние",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 72,
+    question: "Когда СССР официально прекратил существование",
+    complexity: 8,
+    answers: [
+      {
+        id: 1,
+        content: "26 декабря 1991",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "19 августа 1991",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "12 июня 1990",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "31 декабря 1999",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 73,
+    question: "Кто открыл закон всемирного тяготения",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "Галилео Галилей",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Исаак Ньютон",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Альберт Эйнштейн",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Никола Тесла",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 74,
+    question: "Какой учёный впервые разделил атомное ядро",
+    complexity: 8,
+    answers: [
+      {
+        id: 1,
+        content: "Мария Кюри",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Нильс Бор",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Эрнест Резерфорд",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Энрико Ферми",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 75,
+    question: "Что открыл Дмитрий Менделеев",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "Радиоактивность",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Электрический ток",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Строение ДНК",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Периодический закон химических элементов",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 76,
+    question: "Кого считают создателем первой вакцины от оспы",
+    complexity: 10,
+    answers: [
+      {
+        id: 1,
+        content: "Эдвард Дженнер",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Луи Пастер",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Роберт Кох",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Александр Флеминг",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 77,
+    question: "Какое открытие сделал Майкл Фарадей",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "Теория относительности",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Электромагнитная индукция",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Структура атома",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Пенициллин",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 78,
+    question: "Что изобрёл Томас Эдисон",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Телефон",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Паровой двигатель",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Лампу накаливания",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Радио",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 79,
+    question: "Кто открыл икс лучи",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Анри Беккерель",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Пьер Кюри",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Макс Планк",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Вильгельм Рентген",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 80,
+    question: "Основы чего заложил Чарльз Дарвин",
+    complexity: 1,
+    answers: [
+      {
+        id: 1,
+        content: "Теория эволюции",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Квантовая механика",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Закон сохранения энергии",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Двойная спираль ДНК",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 81,
+    question: "Кто доказал, что Земля вращается вокруг Солнца",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "Аристотель",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Николай Коперник",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Птолемей",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Галилео Галилей",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 82,
+    question: "Что открыл Александр Флеминг",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "Вакцину от бешенства",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Аспирин",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Пенициллин",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Инсулин",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 83,
+    question: "Кто сформулировал законы движения планет",
+    complexity: 7,
+    answers: [
+      {
+        id: 1,
+        content: "Исаак Ньютон",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Галилео Галилей",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Тихо Браге",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Иоганн Кеплер",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 84,
+    question: "Какое открытие сделали Уотсон и Крик",
+    complexity: 9,
+    answers: [
+      {
+        id: 1,
+        content: "Двойная спираль ДНК",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Структура атома",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Синтез белка",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Клонирование",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 85,
+    question: "Кто открыл электрон",
+    complexity: 9,
+    answers: [
+      {
+        id: 1,
+        content: "Эрнест Резерфорд",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Джозеф Томсон",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Джеймс Максвелл",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Нильс Бор",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 86,
+    question: "Какой учёный открыл радиоактивность",
+    complexity: 9,
+    answers: [
+      {
+        id: 1,
+        content: "Мария Кюри",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Альберт Эйнштейн",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Анри Беккерель",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Энрико Ферми",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 87,
+    question: "Кто автор теории относительности",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "Стивен Хокинг",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Макс Планк",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Вернер Гейзенберг",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Альберт Эйнштейн",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 88,
+    question: "В каком году началась Гражданская война в США",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "1861",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "1859",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "1865",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "1863",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 89,
+    question: "Какие два союза противостояли в гражданской войне в США",
+    complexity: 5,
+    answers: [
+      {
+        id: 1,
+        content: "Север vs. Запад",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Союз vs. Конфедерация",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Республиканцы vs. Демократы",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Федералисты vs. Антифедералисты",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 90,
+    question: "Какой президент США возглавлял страну во время граданской войны",
+    complexity: 4,
+    answers: [
+      {
+        id: 1,
+        content: "Джордж Вашингтон",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Томас Джефферсон",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Авраам Линкольн",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Эндрю Джексон",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 91,
+    question: "Какое событие стало переломным в гражданской войне в США",
+    complexity: 10,
+    answers: [
+      {
+        id: 1,
+        content: "Битва при Булл-Ране",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Осада Винчестера",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Сражение при Антиетаме",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Битва при Геттисберге",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 92,
+    question: "Какой документ провозгласил отмену рабства",
+    complexity: 4,
+    answers: [
+      {
+        id: 1,
+        content: "Прокламация об освобождении",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Декларация независимости",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Билль о правах",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Конституция Конфедерации",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 93,
+    question: "Кто был первым президентом США",
+    complexity: 2,
+    answers: [
+      {
+        id: 1,
+        content: "Томас Джефферсон",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Джордж Вашингтон",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "Бенджамин Франклин",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Джон Адамс",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 94,
+    question: "Какой был автором текста Декларации независимости",
+    complexity: 4,
+    answers: [
+      {
+        id: 1,
+        content: "Авраам Линкольн",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Джеймс Мэдисон",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Томас Джефферсон",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Джордж Вашингтон",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 95,
+    question: "Когда была подписана Декларация независимости",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "17 сентября 1787 года",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "3 сентября 1783 года",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "19 апреля 1775 года",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "4 июля 1776 года",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 96,
+    question: "Кто является основателем москвы",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Юрий Долгорукий",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "Ярослав Мудрый",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Дмитрий Донской",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Вещий Олег",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 97,
+    question: "В каком году прошли первые олимпийские игры",
+    complexity: 7,
+    answers: [
+      {
+        id: 1,
+        content: "1892",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "1896",
+        isCorrect: true,
+      },
+      {
+        id: 3,
+        content: "1900",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "1904",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 98,
+    question: "Кто из этих учёных жил в эпоху Просвещения",
+    complexity: 7,
+    answers: [
+      {
+        id: 1,
+        content: "Архимед",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Исаак Ньютон",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Дени Дидро",
+        isCorrect: true,
+      },
+      {
+        id: 4,
+        content: "Галилео Галилей",
+        isCorrect: false,
+      }
+    ]
+  },
+  {
+    id: 99,
+    question: "Кто изобрёл бумагу",
+    complexity: 3,
+    answers: [
+      {
+        id: 1,
+        content: "Египтяне",
+        isCorrect: false,
+      },
+      {
+        id: 2,
+        content: "Шумеры",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Греки",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Китайцы",
+        isCorrect: true,
+      }
+    ]
+  },
+  {
+    id: 100,
+    question: "Какая шифровальная машина использовалась немцами во время второй мировой войны",
+    complexity: 6,
+    answers: [
+      {
+        id: 1,
+        content: "Энигма",
+        isCorrect: true,
+      },
+      {
+        id: 2,
+        content: "М-209",
+        isCorrect: false,
+      },
+      {
+        id: 3,
+        content: "Агат",
+        isCorrect: false,
+      },
+      {
+        id: 4,
+        content: "Фиалка",
         isCorrect: false,
       }
     ]

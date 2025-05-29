@@ -59,7 +59,7 @@ const useQuizStore = create<QuizState>()(
                 currentQuestionId: null,
                 currentAnswerId: null,
                 quizResult: {
-                    score: `${state.correctCount} балла!`,
+                    score: `${state.correctCount} ${pluralizeRu(state.correctCount, "балл", "балла", "баллов")}!`,
                     isWin: true,
                     message: state.resultMessage!.loseMessage,
                     correctCount: state.correctCount,
@@ -120,6 +120,16 @@ const getCurrentAnswer = (state: QuizState) => {
 
 export const getCurrentQuestion = (state: QuizState) => {
     return state?.quiz?.questions.find(q => q.id == state.currentQuestionId)
+}
+
+function pluralizeRu(number: number, one: string, few: string, many: string): string {
+    const n = Math.abs(number) % 100;
+    const n1 = n % 10;
+
+    if (n > 10 && n < 20) return many;
+    if (n1 > 1 && n1 < 5) return few;
+    if (n1 === 1) return one;
+    return many;
 }
 
 export default useQuizStore;

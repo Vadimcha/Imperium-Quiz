@@ -7,7 +7,7 @@ import { Button } from "react-untitled-ui";
 
 export const CityDetailPopup: FC = memo(() => {
     const { cityDetailPopup, setDetailPopup } = useCitiesStore()
-    const cityOwner = getOwner(cityDetailPopup?.ownerId)
+    const cityOwner = getOwner(cityDetailPopup?.id)
     
     return <BasePopup
         visible={ !!cityDetailPopup }
