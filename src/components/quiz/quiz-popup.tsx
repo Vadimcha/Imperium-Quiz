@@ -4,14 +4,12 @@ import useQuizStore, { getCurrentQuestion } from "../../store/quizStore.ts";
 import styles from "./quiz.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
 import { QuizResultPopup } from "./quiz-result-popup.tsx";
-import useGameStore from "../../store/gameStore.ts";
 import { handleQuizFinish } from "../../domain/quiz.ts";
 
 export type QuizProps = {}
 
 export const QuizPopup: FC<QuizProps> = memo(() => {
     const quizStore = useQuizStore()
-    const gameStore = useGameStore()
     const currentQuestion = getCurrentQuestion(quizStore)
 
     const onFinish = () => {

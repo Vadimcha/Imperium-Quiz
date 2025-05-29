@@ -9,7 +9,7 @@ import cube3 from "../../assets/cube/cube_3.json"
 import cube4 from "../../assets/cube/cube_4.json"
 import cube5 from "../../assets/cube/cube_5.json"
 import cube6 from "../../assets/cube/cube_6.json"
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const animations = [
     cube1,

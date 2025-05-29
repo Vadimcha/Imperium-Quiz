@@ -9,7 +9,7 @@ export interface ICharacterDetailPopup {
   closePopup: () => void,
 }
 
-const useCharacterDetailPopup =  create<ICharacterDetailPopup>()((set, getState) => ({
+const useCharacterDetailPopup =  create<ICharacterDetailPopup>()((set) => ({
   player: undefined,
   isVisible: false,
   showPopup: (player_id: number) => {

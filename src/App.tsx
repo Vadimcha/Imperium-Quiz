@@ -14,7 +14,6 @@ import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
 import { Cube } from "./components/cube/cube.tsx";
 import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
-import {PlayersQueue} from "./components/players-queue/PlayersQueue.tsx";
 import { GameStartPage } from "./components/game-start/game-start-page.tsx";
 import usePlayersStore from "./store/playersStore.ts";
 import { CityPopup } from "./components/city-popup/city-popup.tsx";
@@ -51,8 +50,6 @@ function App() {
               })
           }
           <CharacterAvatar />
-
-          <PlayersQueue />
 
           <Lines />
           <Cells />

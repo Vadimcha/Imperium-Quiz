@@ -3,6 +3,7 @@ import { Quiz, QuizResultMessage } from "../domain/quiz.ts";
 export const QUIZZES: Quiz[] = [
     {
         name: "тестовый квиз",
+        type: 'just-chilling',
         questions: [
             {
                 id: 1,
