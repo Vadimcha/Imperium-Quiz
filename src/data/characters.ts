@@ -17,17 +17,16 @@ export type RankRange = {
 };
 
 export const RANK_RANGES: RankRange[] = [
-  { min: 4000, max: Infinity, title: 'Король' },
-  { min: 3000, max: 4000, title: 'Герцог' },
-  { min: 2000, max: 3000, title: 'Граф' },
-  { min: 1500, max: 2000, title: 'Рыцарь' },
-  { min: 1000, max: 1500, title: 'Ремесленник' },
-  { min: 600, max: 1000, title: 'Крестьянин' },
-  { min: -Infinity, max: 600, title: 'Шут' },
+  { min: 2000, max: Infinity, title: 'Король' },
+  { min: 1500, max: 2000, title: 'Герцог' },
+  { min: 1000, max: 1500, title: 'Граф' },
+  { min: 750, max: 1000, title: 'Рыцарь' },
+  { min: 500, max: 750, title: 'Ремесленник' },
+  { min: 300, max: 500, title: 'Крестьянин' },
+  { min: -Infinity, max: 300, title: 'Шут' },
 ];
 
-export const INITIAL_BUDGET = 1000;
-export const BUDGET_EVERY_ROUND = 500;
+export const INITIAL_BUDGET = 600;
 export const INITIAL_RANK: RANK = 'Крестьянин';
 
 export interface ICharacter {
