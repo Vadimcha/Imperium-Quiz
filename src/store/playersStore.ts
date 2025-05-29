@@ -4,6 +4,7 @@ import {PLAYER_COUNT} from "../utils";
 import {ICharacter, RANK_RANGES} from "../data/characters.ts";
 import {moneyDurationMs} from "../utils/animations/money/money-animation.tsx";
 import useGameStore from "./gameStore.ts";
+import gameOverPopupStore from "./gameOverPopupStore.ts";
 
 interface PlayersState {
   players: ICharacter[],
@@ -83,9 +84,16 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
         });
       }
     }, stepTime);
+
+    // check loose
+    const playersMoney = usePlayersStore.getState().players.find((p) => p.id == playerId)!.money;
+    if(playersMoney + difference < 0) {
+      gameOverPopupStore.getState().showPopup(playerId);
+      return;
+    }
+
+    // recheck rank
     getState().setRankByScore(playerId)
-    
-    // TODO чекать проиграл ли чел
   },
   setRankByScore: (playerId: number) => {
     const player = getState().players.find(p => p.id == playerId);

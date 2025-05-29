@@ -9,8 +9,6 @@ import "./styles/global.scss";
 import "./styles/normalize.css";
 import "react-untitled-ui/dist/cjs/index.css";
 import "react-untitled-ui/src/styles/global.scss";
-import useQuizStore from "./store/quizStore.ts";
-import { QUIZ_RESULT_MESSAGE, QUIZZES } from "./data/quiz.ts";
 import { QuizPopup } from "./components/quiz/quiz-popup.tsx";
 import { Cube } from "./components/cube/cube.tsx";
 import {CharacterAvatar} from "./components/character/CharacterAvatar.tsx";
@@ -21,11 +19,11 @@ import { CityDetailPopup } from "./components/city-detail-popup/city-detail-popu
 import {CharacterDetailPopup} from "./components/character-detail-popup/character-detail-popup.tsx";
 import { BattleStartPopup } from "./components/battle-start-popup/battle-start-popup.tsx";
 import { BattleResultPopup } from "./components/battle-result-popup/battle-result-popup.tsx";
+import {GameOverPopup} from "./components/game-over-popup/game-over-popup.tsx";
 
 function App() {
   const { nextMove } = useGameStore();
   const { players } = usePlayersStore();
-  const { setQuiz } = useQuizStore();
 
   return (
       <div className={ "main" }>
@@ -38,11 +36,6 @@ function App() {
               className={ "button" }
               onClick={ () => nextMove() }
           >Next Move
-          </button>
-          <button
-              className={ "button2" }
-              onClick={ () => setQuiz(QUIZZES[0], QUIZ_RESULT_MESSAGE)}
-          >Квиз
           </button>
           {
               players.map(player => {
@@ -60,6 +53,7 @@ function App() {
           <CharacterDetailPopup/>
           <BattleStartPopup/>
           <BattleResultPopup/>
+          <GameOverPopup />
 
           {
               players.length == 0 && <GameStartPage/>
