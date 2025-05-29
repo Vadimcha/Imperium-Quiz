@@ -19,7 +19,6 @@ interface GameState {
   move: number,
   process: processType,
   nextMove: () => void,
-  changeProcess: (value: processType) => void,
   cubicValue: number | null,
   setNextPlayerMove: () => void,
 }
@@ -30,6 +29,7 @@ const useGameStore = create<GameState>()((set, getState) => ({
   process: 'wait',
   cubicValue: null,
   nextMove: async () => {
+    set({ process: "move" })
     // бросок кубика
     const nextMove = Math.ceil(Math.random() * 6)
     set(() => ({ cubicValue: nextMove }))
@@ -50,8 +50,7 @@ const useGameStore = create<GameState>()((set, getState) => ({
       }
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
-    
-    
+    set({ process: "wait" })
     // смотрим куда попали
     const currentCell = getCurrentPlayerMove()
     console.log(currentCell)
@@ -68,12 +67,6 @@ const useGameStore = create<GameState>()((set, getState) => ({
       // отдаем ход следующему игроку
       getState().setNextPlayerMove()
     }
-  },
-  changeProcess: (value: processType) => {
-    set((state) => ({
-      ...state,
-      process: value
-    }))
   },
   setNextPlayerMove: () => {
     const playersAmount = usePlayersStore.getState().players.length

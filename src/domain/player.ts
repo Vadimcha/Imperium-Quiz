@@ -1,8 +1,8 @@
 import { ICharacter } from "../data/characters.ts";
 
-export type PlayerColor = "red" | "green" | "blue" | "orange" | "pink" | "black"
+export type PlayerColor = "#00E9C2" | "#DABD00" | "#8400FF" | "#AFEF00" | "#E20087" | "#006DFB"
 
-export const playersColors: PlayerColor[] = ["red", "green", "blue", "orange", "pink", "black"]
+export const playersColors: PlayerColor[] = ["#00E9C2", "#DABD00", "#8400FF", "#AFEF00", "#E20087", "#006DFB"]
 
 export function getRandomPlayerColor(players: ICharacter[]) {
     const playerColors = players.map(x => x.color)

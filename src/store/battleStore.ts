@@ -121,8 +121,8 @@ const useBattleStore = create<IBattleStore>()((set, getState) => ({
     finish: () => {
         const result = getState().battleResultPopup!
         if (!result.isDraw) {
-            playersStore.getState().changePlayersMoney(result.winner.id, BATTLE_MONEY)
-            playersStore.getState().changePlayersMoney(result.loser.id, -BATTLE_MONEY)
+            playersStore.getState().changePlayersMoney(result.winner.id, Math.min(BATTLE_MONEY, result.loser.money))
+            playersStore.getState().changePlayersMoney(result.loser.id, -Math.min(BATTLE_MONEY, result.loser.money))
             useMoneyAnimation.getState().play()
         }
         useGameStore.getState().setNextPlayerMove()

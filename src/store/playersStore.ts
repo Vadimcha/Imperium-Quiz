@@ -87,7 +87,7 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
 
     // check loose
     const playersMoney = usePlayersStore.getState().players.find((p) => p.id == playerId)!.money;
-    if(playersMoney + difference < 0) {
+    if(playersMoney + difference <= 0) {
       gameOverPopupStore.getState().showPopup(playerId);
       return;
     }

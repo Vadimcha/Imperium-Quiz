@@ -42,7 +42,7 @@ export const GameOverPopup = () => {
             <p className={`${s.main_text} ${s.bad_text}`}>
               {player?.name} выбывает
             </p> :
-            <p className={`${s.main_text} ${s.good_text}`}>
+            <p className={`${s.main_text} ${s.good_text}`} style={{color: 'black'}}>
               {player?.name} выигрывает
             </p>
           }

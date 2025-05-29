@@ -2,7 +2,7 @@
 
 .cityContainer {
     pointer-events: all;
-    height: 80vh;
+    height: fit-content;
     width: 45vw;
     border-radius: 27px;
     padding: 6px;
@@ -65,7 +65,8 @@
             }
 
             .button {
-                margin-top: auto;
+                margin-top: 20px;
+                width: 100%;
             }
         }
     }

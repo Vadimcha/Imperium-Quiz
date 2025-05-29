@@ -41,7 +41,7 @@ export const CharacterDetailPopup: FC = memo(() => {
           <div className={s.bio}>
             <p className={s.name}><b>Имя:</b> {player?.name}</p>
             <p className={s.rank}><b>Звание:</b> {player?.rank}</p>
-            <p className={s.money}><b>Cостояние:</b> {player?.money}💰</p>
+            <p className={s.money}><b>Состояние:</b> {Math.round(player?.money || 0)}💰</p>
           </div>
         </div>
 

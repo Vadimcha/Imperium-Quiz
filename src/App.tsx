@@ -22,7 +22,7 @@ import { BattleResultPopup } from "./components/battle-result-popup/battle-resul
 import {GameOverPopup} from "./components/game-over-popup/game-over-popup.tsx";
 
 function App() {
-  const { nextMove } = useGameStore();
+  const { nextMove, process } = useGameStore();
   const { players } = usePlayersStore();
 
   return (
@@ -33,6 +33,7 @@ function App() {
               alt="background"
           />
           <button
+              disabled={process === 'move'}
               className={ "button" }
               onClick={ () => nextMove() }
           >Next Move
