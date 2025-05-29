@@ -126,10 +126,12 @@ const usePlayersStore = create<PlayersState>()((set, getState) => ({
   },
   setPlayers: (players) => set({ players }),
   playerLoose: (playerId: number) => {
-    // TODO показывать сообщение, что чел проиграл и чекать нет ли победителя
     set({
       players: getState().players.filter(x => x.id != playerId)
     })
+    if(getState().players.length == 1) {
+      gameOverPopupStore.getState().showPopup(getState().players[0].id);
+    }
   }
 }))
 

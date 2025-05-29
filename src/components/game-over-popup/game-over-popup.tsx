@@ -26,14 +26,26 @@ export const GameOverPopup = () => {
     })
   }
 
+  const close = () => {
+    closePopup();
+    playerLoose(player!.id);
+  }
+
   return (
     <BasePopup
       visible={ isVisible }
-      toggle={ () => closePopup() }
+      toggle={ () =>  close() }
     >
       <div className={s.gameOverContainer}>
         <div className={s.container}>
-          <p className={s.lose_text}>{player?.name} выбывает</p>
+          {players.length !== 1 ?
+            <p className={`${s.main_text} ${s.bad_text}`}>
+              {player?.name} выбывает
+            </p> :
+            <p className={`${s.main_text} ${s.good_text}`}>
+              {player?.name} выигрывает
+            </p>
+          }
 
           <div className={s.mid}>
             <div
@@ -42,22 +54,23 @@ export const GameOverPopup = () => {
             >
               <img className={s['avatar-img']} src={`/characters/roles_head/${player?.rank}.png`} alt="avatar"/>
             </div>
-            <p className={s.place_text}>занимает {players.length} место</p>
+            <p className={`${s.place_text} ${s.good_text}`}>занимает {players.length} место</p>
           </div>
           {
-            calculateSumEveryRound(player?.id || 0) !== 0 &&
-            <p>Все его владения становятся свободными:</p>
+            players.length === 1 && <img className={s.game_over_img} src="/game_over.png" alt="game over"/>
           }
-          <div className={s.cities}>
-            {renderCities()}
-          </div>
-
+          {
+            (calculateSumEveryRound(player?.id || 0) !== 0 && players.length !== 1) &&
+            <div>
+              <p>Все его владения становятся свободными:</p>
+              <div className={s.cities}>
+                {renderCities()}
+              </div>
+            </div>
+          }
           <Button
             className={s.button}
-            onClick={() => {
-              closePopup();
-              playerLoose(player!.id);
-            }}>
+            onClick={() => close()}>
             Ясно
           </Button>
         </div>
